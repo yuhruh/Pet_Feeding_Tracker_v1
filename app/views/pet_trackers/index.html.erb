@@ -5,11 +5,33 @@
 <h1 class="text-center mt-4">Pet Trackers</h1>
 <%= link_to "Add Feeding Record", new_pet_tracker_path, class: "d-flex justify-content-center" %>
 
-<div id="pet_trackers">
-  <% @pet_trackers.each do |pet_tracker| %>
-    <%= render pet_tracker %>
-    <p>
-      <%= link_to "Show this pet tracker", pet_tracker %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Description</th>
+      <th scope="col">Wet Amount</th>
+      <th scope="col">Wet Left Amount</th>
+      <th scope="col">Dry Amount</th>
+      <th scope="col">Dry Left Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @pet_trackers.each_with_index do |pet_tracker, idx| %>
+        <tr>
+          <th scope="row"><%= idx+1 %></th>
+          <td><%= pet_tracker.date %></td>
+          <td><%= pet_tracker.time %></td>
+          <td><%= pet_tracker.brand %></td>
+          <td><%= pet_tracker.description %></td>
+          <td><%= pet_tracker.wet_amount %></td>
+          <td><%= pet_tracker.wet_left_amount %></td>
+          <td><%= pet_tracker.dry_amount %></td>
+          <td><%= pet_tracker.dry_left_amount %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
