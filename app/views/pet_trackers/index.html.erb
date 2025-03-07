@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Pet trackers" %>
+
+<h1 class="text-center mt-4">Pet Trackers</h1>
+<%= link_to "Add Feeding Record", new_pet_tracker_path, class: "d-flex justify-content-center" %>
+
+<div id="pet_trackers">
+  <% @pet_trackers.each do |pet_tracker| %>
+    <%= render pet_tracker %>
+    <p>
+      <%= link_to "Show this pet tracker", pet_tracker %>
+    </p>
+  <% end %>
+</div>

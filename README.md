@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+web: env RUBY_DEBUG_OPEN=true bin/rails server
