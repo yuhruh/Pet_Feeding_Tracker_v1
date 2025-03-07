@@ -1,0 +1,29 @@
+@import 'bootstrap/scss/bootstrap.scss';
+
+* {
+  font-family: "Gill Sans", sans-serif;
+}
+
+.navbar {
+  background-color: black !important;  
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.navbar-brand {
+  font-size: 15rem; 
+}
+
+.card {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #c4cebf;    
+  color: #0f0f0f;
+}
+
+.form-group {
+  color: #5e646a;
+  font-size: 20px;
+}
