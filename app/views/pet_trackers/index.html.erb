@@ -15,8 +15,11 @@
       <th scope="col">Description</th>
       <th scope="col">Wet Amount</th>
       <th scope="col">Wet Left Amount</th>
+      <th scope="col">Wet Total Ate Amount</th>
       <th scope="col">Dry Amount</th>
       <th scope="col">Dry Left Amount</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -29,8 +32,11 @@
           <td><%= pet_tracker.description %></td>
           <td><%= pet_tracker.wet_amount %></td>
           <td><%= pet_tracker.wet_left_amount %></td>
+          <td><%= (pet_tracker.wet_amount).to_f - (pet_tracker.wet_left_amount).to_f %></td>
           <td><%= pet_tracker.dry_amount %></td>
           <td><%= pet_tracker.dry_left_amount %></td>
+          <td><%= link_to "Edit", edit_pet_tracker_path(pet_tracker)  %></td>
+          <td><%= button_to "Delete", pet_tracker, method: :delete  %></td>
         </tr>
       <% end %>
   </tbody>
