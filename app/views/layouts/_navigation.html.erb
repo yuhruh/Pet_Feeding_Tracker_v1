@@ -13,8 +13,12 @@
               Tracker Records
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/pet_trackers/new">Adding Records</a></li>
-              <li><a class="dropdown-item" href="/pet_trackers">Show Record Tables</a></li>
+              <li>
+                <%= link_to "Adding Records", new_pet_tracker_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "Show Record Tables", pet_trackers_path, class: "dropdown-item" %>
+              </li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
         </li>
