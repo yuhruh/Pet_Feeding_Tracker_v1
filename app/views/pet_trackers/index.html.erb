@@ -36,7 +36,7 @@
           <td><%= pet_tracker.dry_amount %></td>
           <td><%= pet_tracker.dry_left_amount %></td>
           <td><%= link_to "Edit", edit_pet_tracker_path(pet_tracker)  %></td>
-          <td><%= button_to "Delete", pet_tracker, method: :delete  %></td>
+          <td><%= button_to "Delete", pet_tracker, method: :delete, image_tag("icon_delete.png")  %></td>
         </tr>
       <% end %>
   </tbody>
