@@ -1,73 +1,69 @@
-<%= form_with(model: pet_tracker) do |form| %>
-  <% if pet_tracker.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pet_tracker.errors.count, "error") %> prohibited this pet_tracker from being saved:</h2>
+<div class="container">
+  <%= form_with(model: pet_tracker) do |form| %>
+    <div class="d-flex justify-content-center">
+      <%= render 'shared/errors' %>
+    </div>
 
-      <ul>
-        <% pet_tracker.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="col-12">
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :date, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.date_field :date, class: "form-control"  %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :time, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.time_field :time, class: "form-control"  %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :brand, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :brand, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :description, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :description, class: "form-control"  %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :wet_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :wet_amount, class: "form-control floatingInput" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :wet_left_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :wet_left_amount, class: "form-control floatingInput" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :dry_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :dry_amount, class: "form-control floatingInput" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 justify-content-center">
+        <%= form.label :dry_left_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+        <div class="col-sm-3">
+          <%= form.text_field :dry_left_amount, class: "form-control floatingInput" %>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <%= form.submit class: "btn", style: "color: #515a5a; font-weight: bold; background-color: #d5dbdb" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :date, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.date_field :date, class: "form-control"  %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :time, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.time_field :time, class: "form-control"  %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-  <%= form.label :brand, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-  <div class="col-sm-3">
-    <%= form.text_field :brand, class: "form-control" %>
-  </div>
 </div>
-
-<div class="row mb-3 justify-content-center">
-    <%= form.label :description, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.text_field :description, class: "form-control"  %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :wet_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.text_field :wet_amount, class: "form-control floatingInput" %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :wet_left_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.text_field :wet_left_amount, class: "form-control floatingInput" %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :dry_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.text_field :dry_amount, class: "form-control floatingInput" %>
-    </div>
-  </div>
-
-  <div class="row mb-3 justify-content-center">
-    <%= form.label :dry_left_amount, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
-    <div class="col-sm-3">
-      <%= form.text_field :dry_left_amount, class: "form-control floatingInput" %>
-    </div>
-  </div>
-
-  <div class="d-flex justify-content-center">
-    <%= form.submit class: "btn", style: "color: #515a5a; font-weight: bold; background-color: #d5dbdb" %>
-  </div>
-<% end %>

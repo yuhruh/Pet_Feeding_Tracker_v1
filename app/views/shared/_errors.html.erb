@@ -1,0 +1,11 @@
+<% if @pet_tracker.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h2 class="alert-heading"><%= pluralize(@pet_tracker.errors.count, "error") %> prohibited this pet_tracker from being saved:</h2>
+    <ul>
+      <% @pet_tracker.errors.each do |pet_tracker| %>
+        <li><%= pet_tracker.full_message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
