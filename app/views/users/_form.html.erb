@@ -29,7 +29,7 @@
     </div>
 
     <div class="d-flex justify-content-center">
-      <%= form.submit 'Sign Up', class: "btn", style: "color: #515a5a; font-weight: bold; background-color: #d5dbdb" %>
+      <%= form.submit(@user.new_record? ? 'Sign Up' : 'Update account', class: "btn", style: "color: #515a5a; font-weight: bold; background-color: #d5dbdb") %>
     </div>
   <% end %>
 </div>
