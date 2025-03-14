@@ -1,7 +1,7 @@
 <div class="container">
   <%= form_with(model: pet_tracker) do |form| %>
     <div class="d-flex justify-content-center">
-      <%= render 'shared/errors' %>
+      <%= render 'shared/errors', obj: @pet_tracker %>
     </div>
 
     <div class="col-12">

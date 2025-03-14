@@ -1,27 +1,35 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container">
+  <%= form_with(model: user) do |form| %>
+    <div class="d-flex justify-content-center">
+      <%= render 'shared/errors', obj: @user %>
+    </div>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="col-12">
+      <div class="row mb-3 justify-content-center">
+      <%= form.label :username, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+      <div class="col-sm-3">
+        <%= form.text_field :username, class: "form-control", placeholder: "Enter a username" %>
+       </div> 
+    </div>
+
+    <div class="col-12">
+      <div class="row mb-3 justify-content-center">
+      <%= form.label :email, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+      <div class="col-sm-3">
+        <%= form.email_field :email, class: "form-control", placeholder: "Enter your email address"  %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row mb-3 justify-content-center">
+      <%= form.label :password, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+      <div class="col-sm-3">
+        <%= form.password_field :password, class: "form-control", placeholder: "Create password"  %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <%= form.submit 'Sign Up', class: "btn", style: "color: #515a5a; font-weight: bold; background-color: #d5dbdb" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
