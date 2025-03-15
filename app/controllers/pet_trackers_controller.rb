@@ -3,7 +3,7 @@ class PetTrackersController < ApplicationController
 
   # GET /pet_trackers or /pet_trackers.json
   def index
-    @pet_trackers = PetTracker.all
+    @pet_trackers = PetTracker.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /pet_trackers/1 or /pet_trackers/1.json

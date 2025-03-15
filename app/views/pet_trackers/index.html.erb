@@ -1,7 +1,19 @@
 <% content_for :title, "Pet trackers" %>
 
-<h1 class="text-center mt-4">Pet Trackers</h1>
-<%= link_to "#{image_tag('icon_add.png', width:'18px', height: '18px')}  Adding Feeding Record".html_safe, new_pet_tracker_path, class: "float-sm-end justify-content-end align-items-end" %>
+<div class="d-flex justify-content-center">
+  <h1 class="text-center mt-4">Pet Trackers</h1>
+</div>
+
+<div class="d-flex float-sm-center justify-content-center mb-4">
+  <%= link_to "#{image_tag('icon_add.png', width:'18px', height: '18px')}  Adding Feeding Record".html_safe, new_pet_tracker_path %>
+</div>
+
+<div class="digg_pagination text-center mb-4">
+  <div class="page_info">
+    <%= page_entries_info @pet_trackers %>
+  </div>
+  <%= will_paginate @pet_trackers, :container => false %>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -41,3 +53,10 @@
       <% end %>
   </tbody>
 </table>
+
+<div class="digg_pagination text-center mb-4">
+  <div class="page_info">
+    <%= page_entries_info @pet_trackers %>
+  </div>
+  <%= will_paginate @pet_trackers, :container => false %>
+</div>
