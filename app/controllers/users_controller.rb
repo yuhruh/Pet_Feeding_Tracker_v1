@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @user = User.find(params[:id])
     @pet_trackers = @user.pet_trackers.paginate(page: params[:page], per_page: 10)
   end
 
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -22,7 +21,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to pet_trackers_path, notice: "Welcome to Pet Trackers App, #{@user.username}. You have signed up successfully." }
+        session[:user_id] = @user.id
+        format.html { redirect_to @pet_trackers, notice: "Welcome to Pet Trackers App, #{@user.username}. You have signed up successfully." }
         format.json { render :show, status: :created, location: @pet_tracker }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,11 +32,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to pet_trackers_path, notice: "Account was successfully updated." }
-        format.json { render :show, status: :ok, location: @pet_tracker }
+        format.html { redirect_to @user, notice: "Account was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -47,6 +46,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.expect(user: [ :username, :email, :password ])
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end
