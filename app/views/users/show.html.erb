@@ -9,4 +9,22 @@
 
 <h3 class="text-center mt-4"><%= @user.username.capitalize %>'s Tracker Records</h3>
 
+<div class="d-flex digg_pagination justify-content-center">
+  <div class="page_info">
+    <%= page_entries_info @pet_trackers %>
+  </div>
+</div>
+<div class="d-flex digg_pagination justify-content-center mb-4">
+  <%= will_paginate @pet_trackers, :container => false %>
+</div>
+
 <%= render 'pet_trackers/pet_tracker' %>
+
+<div class="d-flex digg_pagination justify-content-center">
+  <div class="page_info">
+    <%= page_entries_info @pet_trackers %>
+  </div>
+</div>
+<div class="d-flex digg_pagination justify-content-center mb-4">
+  <%= will_paginate @pet_trackers, :container => false %>
+</div>

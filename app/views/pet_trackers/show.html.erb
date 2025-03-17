@@ -1,6 +1,39 @@
-<%= render @pet_tracker %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Description</th>
+      <th scope="col">Wet Amount(g)</th>
+      <th scope="col">Wet Left Amount(g)</th>
+      <th scope="col">Wet Total Ate Amount(g)</th>
+      <th scope="col">Dry Amount(g)</th>
+      <th scope="col">Dry Left Amount(g)</th>
+      <th scope="col">Dry Total Ate Amount(g)</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @pet_tracker.date %></td>
+      <td><%= JSON(@pet_tracker.time).split(' ')[1] %></td>
+      <td><%= @pet_tracker.brand %></td>
+      <td><%= @pet_tracker.description %></td>
+      <td><%= @pet_tracker.wet_amount %></td>
+      <td><%= @pet_tracker.wet_left_amount %></td>
+      <td><%= ((@pet_tracker.wet_amount).to_f - (@pet_tracker.wet_left_amount).to_f).round(3) %></td>
+      <td><%= @pet_tracker.dry_amount %></td>
+      <td><%= @pet_tracker.dry_left_amount %></td>
+      <td><%= ((@pet_tracker.dry_amount).to_f - (@pet_tracker.dry_left_amount).to_f).round(3) %></td>
+      <td><%= link_to (image_tag("icon_edit.png", width:"18px")), edit_pet_tracker_path(@pet_tracker)  %></td>
+      <td><%= link_to (image_tag("icon_delete.png", width:"18px")) , @pet_tracker, method: :delete %></td>
+    </tr>
+  </tbody>
+</table>
 
-<div>
+<div class="text-center">
   <%= link_to "Edit this pet tracker", edit_pet_tracker_path(@pet_tracker) %> |
   <%= link_to "Go to Pet Trackers Table", pet_trackers_path %>
 
