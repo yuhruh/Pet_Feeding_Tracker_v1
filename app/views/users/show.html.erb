@@ -18,6 +18,10 @@
   <%= will_paginate @pet_trackers, :container => false %>
 </div>
 
+<div class="d-flex float-sm-center justify-content-center mb-4">
+  <%= link_to "#{image_tag('icon_add.png', width:'18px', height: '18px')}  Adding Feeding Record".html_safe, new_pet_tracker_path %>
+</div>
+
 <%= render 'pet_trackers/pet_tracker' %>
 
 <div class="d-flex digg_pagination justify-content-center">

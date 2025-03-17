@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ show edit update ]
 
   def show
-    @user = User.find(params[:id])
     @pet_trackers = @user.pet_trackers.paginate(page: params[:page], per_page: 10)
   end
 
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "Account was successfully updated." }
