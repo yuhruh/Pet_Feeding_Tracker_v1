@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in successfully."
       redirect_to user
     else
-      flash.now[:message] = "There was something wrong with your login details"
-      render action: 'new'
+      flash.now[:alert] = "There was something wrong with your login details"
+      render :new, status: :unprocessable_entity
     end
   end
 
