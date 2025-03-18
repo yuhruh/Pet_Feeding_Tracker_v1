@@ -1,5 +1,7 @@
 class PetTrackersController < ApplicationController
   before_action :set_pet_tracker, only: %i[ show edit update destroy ]
+  before_action :require_user, except: %i[ show index ]
+  before_action :require_same_user, only: %i[edit update destroy]
 
   # GET /pet_trackers or /pet_trackers.json
   def index
@@ -67,5 +69,12 @@ class PetTrackersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def pet_tracker_params
       params.expect(pet_tracker: [ :date, :time, :brand, :description, :wet_amount, :wet_left_amount, :dry_amount, :dry_left_amount ])
+    end
+
+    def require_same_user
+      if current_user != @pet_tracker.user
+        flash[:alert] = "You can only edit or delete your own cat's records...."
+        redirect_to @pet_tracker
+      end
     end
 end
