@@ -15,6 +15,7 @@
   <div class="text-center">
     <% @users.each do |user| %>
       <h4 class="justify-content-center"><%= link_to user.username, user %></h4>
+      <p><%= pluralize(user.pet_trackers.count, " Track Records") %></p>
       <h5><%= link_to gravatar_for(user, size: 130) %></h5>
       <%= link_to "View Profile", user, class: "btn btn-outline-success btn-sm mb-4" %>
       <% if logged_in? %> 
