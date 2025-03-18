@@ -1,7 +1,7 @@
 class PetTrackersController < ApplicationController
   before_action :set_pet_tracker, only: %i[ show edit update destroy ]
   before_action :require_user, except: %i[ show index ]
-  before_action :require_same_user, only: %i[edit update destroy]
+  before_action :require_same_user, only: %i[ edit update destroy ]
 
   # GET /pet_trackers or /pet_trackers.json
   def index
@@ -55,7 +55,7 @@ class PetTrackersController < ApplicationController
     @pet_tracker.destroy!
 
     respond_to do |format|
-      format.html { redirect_to pet_trackers_path, status: :see_other, notice: "Pet tracker was successfully destroyed." }
+      format.html { redirect_to pet_trackers_path, status: :see_other, alert: "Pet tracker was successfully deleted." }
       format.json { head :no_content }
     end
   end

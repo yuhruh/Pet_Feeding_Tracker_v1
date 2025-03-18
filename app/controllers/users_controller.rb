@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update ]
+  before_action :set_user, only: %i[ show edit update destroy ]
   before_action :require_user, only: %i[ edit update ]
-  before_action :require_same_user, only: %i[ edit update ]
+  before_action :require_same_user, only: %i[ edit update destroy ]
 
   def show
     @pet_trackers = @user.pet_trackers.paginate(page: params[:page], per_page: 10)
@@ -30,6 +30,16 @@ class UsersController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @user.destroy!
+    session[:user_id] = nil
+
+    respond_to do |format|
+      format.html { redirect_to pet_trackers_path, status: :see_other, alert: "#{@user.username} and all associated records were successfully deleted." }
+      format.json { head :no_content }
     end
   end
 
