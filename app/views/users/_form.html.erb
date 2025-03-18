@@ -24,7 +24,16 @@
       <div class="row mb-3 justify-content-center">
       <%= form.label :password, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
       <div class="col-sm-3">
-        <%= form.password_field :password, class: "form-control", placeholder: "Create password"  %>
+        <%= form.password_field :password, class: "form-control", placeholder: "Create password" %>
+        <div id="emailHelp" class="form-text">Password should contain at least one upper case, one lower case, one digit and one special character</div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row mb-3 justify-content-center">
+      <%= form.label :password_confirmation, class: "col-sm-3 col-form-label", style: "color: #515a5a; font-weight: bold" %>
+      <div class="col-sm-3">
+        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password"  %>
       </div>
     </div>
 

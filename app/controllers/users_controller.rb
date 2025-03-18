@@ -19,12 +19,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(params.expect(user: [ :username, :email, :password, :password_confirmation ]))
 
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @pet_trackers, notice: "Welcome to Pet Trackers App, #{@user.username}. You have signed up successfully." }
+        format.html { redirect_to pet_trackers_path, notice: "Welcome to Pet Trackers App, #{@user.username}. You have signed up successfully." }
         format.json { render :show, status: :created, location: @pet_tracker }
       else
         format.html { render :new, status: :unprocessable_entity }

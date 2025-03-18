@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase, self.password = password_confirmation }
   has_many :pet_trackers, dependent: :destroy
   validates :username, presence: true, 
                       uniqueness: { case_sensitive: false }, 
@@ -10,4 +10,8 @@ class User < ApplicationRecord
                     length: { maximum: 105 },
                     format: { with: VALID_EMAIL_REGEX }
   has_secure_password
+  validates :password, presence: true,
+                       length: { minimum: 8 },
+                       format: { with: /(?=.*[0-9])(?=.*?[^A-Za-z0-9])(?=.*[a-z])(?=.*[A-Z])/ }
+  validates :password_confirmation, presence: true
 end
