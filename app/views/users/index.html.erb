@@ -17,8 +17,13 @@
       <h4 class="justify-content-center"><%= link_to user.username, user %></h4>
       <h5><%= link_to gravatar_for(user, size: 130) %></h5>
       <%= link_to "View Profile", user, class: "btn btn-outline-success btn-sm mb-4" %>
-      <% if logged_in? && user == current_user %>
-        <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-secondary btn-sm mb-4"%>
+      <% if logged_in? %> 
+        <% if user == current_user %>
+          <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-secondary btn-sm mb-4" %>
+        <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "Delete user", user_path(user), class: "btn btn-outline-danger btn-sm mb-4", data: { "turbo-confirm": "Are you sure to delete this user account? The user and associated trackers will all gone..", "turbo-method": :delete } %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

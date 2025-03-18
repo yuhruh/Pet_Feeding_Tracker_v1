@@ -29,7 +29,7 @@
           </li>
           <li class="nav-item dropdown">
             <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile <%= current_user.username.capitalize %>
+              <%= "(Admin)" if current_user.admin? %> Profile <%= current_user.username.capitalize %>
             </button>
             <ul class="dropdown-menu">
               <li>

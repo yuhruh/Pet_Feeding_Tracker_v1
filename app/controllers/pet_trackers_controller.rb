@@ -72,7 +72,7 @@ class PetTrackersController < ApplicationController
     end
 
     def require_same_user
-      if current_user != @pet_tracker.user
+      if current_user != @pet_tracker.user && !current_user.admin?
         flash[:alert] = "You can only edit or delete your own cat's records...."
         redirect_to @pet_tracker
       end

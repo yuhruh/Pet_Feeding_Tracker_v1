@@ -27,7 +27,7 @@
       <td><%= @pet_tracker.dry_amount %></td>
       <td><%= @pet_tracker.dry_left_amount %></td>
       <td><%= ((@pet_tracker.dry_amount).to_f - (@pet_tracker.dry_left_amount).to_f).round(3) %></td>
-      <% if logged_in? && @pet_tracker.user == current_user %>
+      <% if logged_in? && (@pet_tracker.user == current_user || current_user.admin?) %>
         <td><%= link_to (image_tag("icon_edit.png", width:"18px")), edit_pet_tracker_path(@pet_tracker)  %></td>
         <td><%= link_to (image_tag("icon_delete.png", width:"18px")), @pet_tracker, data: { "turbo-method": :delete } %></td>
       <% else %>
