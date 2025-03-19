@@ -19,6 +19,9 @@
 
 <%= render 'pet_tracker' %>
 
+<%= column_chart [{name: "Wet Food Ate Amount", data: @pet_trackers.group_by_day(:date).sum(:wet_amount)},
+{name: "Dry Food Ate Amount", data: @pet_trackers.group_by_day(:date).sum(:dry_amount)}], stacked: true %>
+
 <div class="d-flex digg_pagination justify-content-center">
   <div class="page_info">
     <%= page_entries_info @pet_trackers %>
