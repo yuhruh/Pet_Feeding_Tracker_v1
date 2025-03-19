@@ -23,7 +23,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate', '~> 4.0'
 gem "chartkick"
 gem "groupdate"
 
