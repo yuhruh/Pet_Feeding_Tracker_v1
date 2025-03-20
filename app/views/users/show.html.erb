@@ -26,6 +26,10 @@
 
 <%= render 'pet_trackers/pet_tracker' %>
 
+<%= column_chart [{name: "wet ate total amount", 
+data: PetTracker.group_by_day(:date).pluck("date", "wet_amount", "wet_left_amount").map {|amount| [amount[0], (amount[-2].to_f-amount[-1].to_f)]}},
+{name: "dry ate total amount", data: PetTracker.group_by_day(:date).pluck("date", "dry_amount", "dry_left_amount").map {|amount| [amount[0], (amount[-2].to_f-amount[-1].to_f)]}}], stacked: true %>
+
 <div class="d-flex digg_pagination justify-content-center">
   <div class="page_info">
     <%= page_entries_info @pet_trackers %>
