@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_18_074651) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_20_141621) do
   create_table "pet_trackers", force: :cascade do |t|
     t.date "date", default: -> { "CURRENT_DATE" }
     t.time "time", default: -> { "CURRENT_TIME" }
@@ -23,6 +23,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_18_074651) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.decimal "wet_total_ate_amount", precision: 5, scale: 2
+    t.decimal "dry_total_ate_amount", precision: 5, scale: 2
   end
 
   create_table "users", force: :cascade do |t|

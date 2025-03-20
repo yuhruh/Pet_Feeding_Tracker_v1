@@ -25,6 +25,8 @@ class PetTrackersController < ApplicationController
   def create
     @pet_tracker = PetTracker.new(pet_tracker_params)
     @pet_tracker.user = current_user
+    @pet_tracker.wet_total_ate_amount = @pet_tracker.wet_amount - @pet_tracker.wet_left_amount
+    @pet_tracker.dry_total_ate_amount = @pet_tracker.dry_amount - @pet_tracker.dry_left_amount
 
     respond_to do |format|
       if @pet_tracker.save
