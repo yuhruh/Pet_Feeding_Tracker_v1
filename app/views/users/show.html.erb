@@ -26,8 +26,13 @@
 
 <%= render 'pet_trackers/pet_tracker' %>
 
-<%= column_chart [{name: "wet ate total amount", data: PetTracker.group_by_day(:date).sum(:wet_total_ate_amount)}, 
-{name: "dry ate total amount", data: PetTracker.group_by_day(:date).sum(:dry_total_ate_amount)}], stacked: true %>
+<% if logged_in? && @user == current_user && current_user.pet_trackers.count == 0 %>
+  <h3 class="text-center mb-4">You don't have any records yet... Why don't you create it right now?</h3>
+<% else %>
+  <h4 class="text-center mb-4"><%= current_user.username.capitalize %>'s record trend</h4>
+  <%= column_chart [{name: "wet ate total amount", data: current_user.pet_trackers.group_by_day(:date).sum(:wet_total_ate_amount)}, 
+  {name: "dry ate total amount", data: current_user.pet_trackers.group_by_day(:date).sum(:dry_total_ate_amount)}], stacked: true %>
+<% end %>
 
 <div class="d-flex digg_pagination justify-content-center">
   <div class="page_info">
