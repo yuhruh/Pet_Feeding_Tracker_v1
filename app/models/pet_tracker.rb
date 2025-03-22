@@ -1,4 +1,5 @@
 class PetTracker < ApplicationRecord
+  attribute :date, :datetime, default: ->{ Time.now }
   belongs_to :user
   validates :brand, presence: true, length: {minimum: 2, maximum: 50}
   validates :description, presence: true, length: {minimum: 3, maximum: 100}

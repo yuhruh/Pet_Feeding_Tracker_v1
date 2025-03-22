@@ -20,7 +20,7 @@
     <% @pet_trackers.each_with_index do |pet_tracker, idx| %>
       <tr>
         <th scope="row"><%= idx+1 %></th>
-        <td><%= pet_tracker.date %></td>
+        <td><%= pet_tracker.date.strftime("%Y-%m-%d") %></td>
         <td><%= JSON(pet_tracker.time).split(' ')[1] %></td>
         <td><%= pet_tracker.brand %></td>
         <td><%= pet_tracker.description %></td>
