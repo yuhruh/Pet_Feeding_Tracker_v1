@@ -18,7 +18,7 @@
       <p><%= pluralize(user.pet_trackers.count, " Track Records") %></p>
       <h5><%= link_to gravatar_for(user, size: 130) %></h5>
       <%= link_to "View Profile", user, class: "btn btn-outline-success btn-sm mb-4" %>
-      <% if logged_in? %> 
+      <% if logged_in? %>
         <% if user == current_user %>
           <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-secondary btn-sm mb-4" %>
         <% end %>
