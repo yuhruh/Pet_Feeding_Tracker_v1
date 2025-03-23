@@ -1,24 +1,20 @@
 # README
+Using RoR, Heroku and Chartkick to record feeding amount a day with dry and wet food. The app can show the raw data and column chart to see the feeding trends.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://test-tracker-v1-68679b6d52bd.herokuapp.com/
 
-Things you may want to cover:
+# Requirements
+- Sing In/Sing Out/Sign Up, having basic validation on email and password.
+- add/edit/delete records.
+- edit/ delete users by their own.
+- automatically show the current date and time when creating a new record, date can not be a future date and time can not be records in (current time + 1 minute).
+- show the column chart following the records.
+- pagination for users and records.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Improvement
+- add timezone selection when users sign up, so the records can convert the users' timezone. Not set in the app.
+- add multiple pets selection for record.
+- add unit selection for record.
+- automatically show the pet's love food when creating a new record for a new day.
+- add new column for weights, numbers of pee and poo/day, note. 
