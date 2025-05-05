@@ -4,7 +4,7 @@ Using RoR, Heroku and Chartkick to record feeding amount a day with dry and wet 
 https://test-tracker-v1-68679b6d52bd.herokuapp.com/
 
 # Requirements
-- Sing In/Sing Out/Sign Up, having basic validation on email and password.
+- Sign In/Sign Out/Sign Up, having basic validation on email and password.
 - add/edit/delete records.
 - edit/ delete users by their own.
 - automatically show the current date and time when creating a new record, date can not be a future date and time can not be records in (current time + 1 minute).
